@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+
+
+body {
+    max-width: 1400px;
+    margin: auto;
+}
+
+header {
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2 / 3;
+}
+
+.wrapper {
+    height: 100%;
+    display: grid;
+    grid-template: 140px 1fr / 340px minmax(400px, 1fr);
+}
+
+.side-bar {
+    background-color: rgb(44, 190, 226);
+    padding: 40px 20px;
+    grid-row: 1 / 3;
+}
+
+.side-bar h2 {
+    padding-bottom: 40px;
+}
+
+form .input-wrapper:not(:nth-last-child(2)) {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-wrapper, form button {
+    margin-top: 20px;
+}
+
+.my-books {
+    background-color: antiquewhite;
+}
