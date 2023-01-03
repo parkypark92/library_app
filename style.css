@@ -4,13 +4,14 @@
     box-sizing: border-box;
 }
 
-html, body {
+html {
     height: 100%;
 }
 
 
 
 body {
+    height: 100%;
     max-width: 1400px;
     margin: auto;
 }
@@ -50,4 +51,19 @@ form .input-wrapper:not(:nth-last-child(2)) {
 
 .my-books {
     background-color: antiquewhite;
+    padding: 40px;
+    min-width: 530px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 300px;
+    justify-items: center;
+    gap: 40px
+}
+
+.book {
+    width: 200px;
+    height: 300px;
+    background-color: aquamarine;
+
 }
