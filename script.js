@@ -19,7 +19,10 @@ function Book(title, author, published, pages, hasRead) {
 function createDisplay(bookToDisplay) {
   const currentBook = document.createElement("div");
   currentBook.classList.add("book-title-display");
+  currentBook.setAttribute("data-index", myLibrary.indexOf(bookToDisplay));
   currentBook.textContent = bookToDisplay.title;
+  const removeButton = document.createElement("button");
+  removeButton.classList.add("remove-button");
   currentBook.addEventListener("mouseover", () => {
     currentBook.classList.toggle("book-title-display");
     currentBook.classList.toggle("book-info-display");
@@ -29,11 +32,13 @@ function createDisplay(bookToDisplay) {
     Published: ${bookToDisplay.published}
     Pages: ${bookToDisplay.pages}
     Has Read: ${bookToDisplay.hasRead}`;
+    currentBook.appendChild(removeButton);
   });
   currentBook.addEventListener("mouseout", () => {
     currentBook.classList.toggle("book-title-display");
     currentBook.classList.toggle("book-info-display");
     currentBook.textContent = bookToDisplay.title;
+    currentBook.appendChild(removeButton);
   });
   bookShelf.appendChild(currentBook);
 }

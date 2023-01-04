@@ -72,3 +72,13 @@ form .input-wrapper:not(:nth-last-child(2)) {
     background-color: rgb(180, 180, 180);
     white-space: pre-wrap;
 }
+
+.book-title-display .remove-button {
+    display: none;
+}
+
+.remove-button {
+    height: 30px;
+    width: 100px;
+}
+
