@@ -16,10 +16,25 @@ function Book(title, author, published, pages, hasRead) {
   this.hasRead = hasRead;
 }
 
-function displayBooks(bookToDisplay) {
+function createDisplay(bookToDisplay) {
   const currentBook = document.createElement("div");
-  currentBook.classList.add("book");
+  currentBook.classList.add("book-title-display");
   currentBook.textContent = bookToDisplay.title;
+  currentBook.addEventListener("mouseover", () => {
+    currentBook.classList.toggle("book-title-display");
+    currentBook.classList.toggle("book-info-display");
+    currentBook.textContent = `
+    Title: ${bookToDisplay.title}
+    Author: ${bookToDisplay.author}
+    Published: ${bookToDisplay.published}
+    Pages: ${bookToDisplay.pages}
+    Has Read: ${bookToDisplay.hasRead}`;
+  });
+  currentBook.addEventListener("mouseout", () => {
+    currentBook.classList.toggle("book-title-display");
+    currentBook.classList.toggle("book-info-display");
+    currentBook.textContent = bookToDisplay.title;
+  });
   bookShelf.appendChild(currentBook);
 }
 
@@ -33,36 +48,36 @@ function addBookToLibrary(event) {
     newHasRead.checked ? newHasRead.value : "False"
   );
   myLibrary.push(newBook);
-  displayBooks(newBook);
+  createDisplay(newBook);
   form.reset();
 }
 
 submit.addEventListener("click", addBookToLibrary);
 
-const testBook = new Book("Test Book1", "Andrew Park", "2023", "300", "Off");
+const testBook = new Book("Test Book1", "Andrew Park", "2023", "300", "False");
 myLibrary.push(testBook);
-displayBooks(testBook);
-const testBook2 = new Book("Test Book2", "Andrew Park", "2023", "300", "Off");
+createDisplay(testBook);
+const testBook2 = new Book("Test Book2", "Andrew Park", "2023", "300", "False");
 myLibrary.push(testBook2);
-displayBooks(testBook2);
-const testBook3 = new Book("Test Book3", "Andrew Park", "2023", "300", "Off");
+createDisplay(testBook2);
+const testBook3 = new Book("Test Book3", "Andrew Park", "2023", "300", "False");
 myLibrary.push(testBook3);
-displayBooks(testBook3);
-const testBook4 = new Book("Test Book4", "Andrew Park", "2023", "300", "Off");
+createDisplay(testBook3);
+const testBook4 = new Book("Test Book4", "Andrew Park", "2023", "300", "False");
 myLibrary.push(testBook4);
-displayBooks(testBook4);
-const testBook5 = new Book("Test Book5", "Andrew Park", "2023", "300", "Off");
+createDisplay(testBook4);
+const testBook5 = new Book("Test Book5", "Andrew Park", "2023", "300", "False");
 myLibrary.push(testBook5);
-displayBooks(testBook5);
-const testBook6 = new Book("Test Book6", "Andrew Park", "2023", "300", "Off");
+createDisplay(testBook5);
+const testBook6 = new Book("Test Book6", "Andrew Park", "2023", "300", "False");
 myLibrary.push(testBook6);
-displayBooks(testBook6);
-const testBook7 = new Book("Test Book7", "Andrew Park", "2023", "300", "Off");
+createDisplay(testBook6);
+const testBook7 = new Book("Test Book7", "Andrew Park", "2023", "300", "False");
 myLibrary.push(testBook7);
-displayBooks(testBook7);
-const testBook8 = new Book("Test Book8", "Andrew Park", "2023", "300", "Off");
+createDisplay(testBook7);
+const testBook8 = new Book("Test Book8", "Andrew Park", "2023", "300", "False");
 myLibrary.push(testBook8);
-displayBooks(testBook8);
-const testBook9 = new Book("Test Book9", "Andrew Park", "2023", "300", "Off");
+createDisplay(testBook8);
+const testBook9 = new Book("Test Book9", "Andrew Park", "2023", "300", "False");
 myLibrary.push(testBook9);
-displayBooks(testBook9);
+createDisplay(testBook9);
