@@ -16,13 +16,37 @@ function Book(title, author, published, pages, hasRead) {
   this.hasRead = hasRead;
 }
 
+function reassignIndex() {
+  const books = bookShelf.children;
+  for (let i = 0; i < books.length; i += 1) {
+    books[i].setAttribute("data-index", i);
+  }
+}
+
+function removeBookFromLibrary(e) {
+  if (confirm("Are you sure you wish to remove this book?")) {
+    const removeIndex = e.target.parentNode.getAttribute("data-index");
+    myLibrary.splice(removeIndex, 1);
+    e.target.parentNode.remove();
+    reassignIndex();
+  }
+}
+
+function createRemoveButton() {
+  const removeButton = document.createElement("button");
+  removeButton.classList.add("remove-button");
+  removeButton.textContent = "Remove";
+  removeButton.addEventListener("click", removeBookFromLibrary);
+  return removeButton;
+}
+
 function createDisplay(bookToDisplay) {
   const currentBook = document.createElement("div");
   currentBook.classList.add("book-title-display");
   currentBook.setAttribute("data-index", myLibrary.indexOf(bookToDisplay));
   currentBook.textContent = bookToDisplay.title;
-  const removeButton = document.createElement("button");
-  removeButton.classList.add("remove-button");
+  const currentButton = createRemoveButton();
+  currentBook.appendChild(currentButton);
   currentBook.addEventListener("mouseover", () => {
     currentBook.classList.toggle("book-title-display");
     currentBook.classList.toggle("book-info-display");
@@ -32,13 +56,13 @@ function createDisplay(bookToDisplay) {
     Published: ${bookToDisplay.published}
     Pages: ${bookToDisplay.pages}
     Has Read: ${bookToDisplay.hasRead}`;
-    currentBook.appendChild(removeButton);
+    currentBook.appendChild(currentButton);
   });
   currentBook.addEventListener("mouseout", () => {
     currentBook.classList.toggle("book-title-display");
     currentBook.classList.toggle("book-info-display");
     currentBook.textContent = bookToDisplay.title;
-    currentBook.appendChild(removeButton);
+    currentBook.appendChild(currentButton);
   });
   bookShelf.appendChild(currentBook);
 }
