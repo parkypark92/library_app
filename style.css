@@ -6,7 +6,7 @@
 
 html {
     height: 100%;
-    background-image: url(./images/pexels-stanislav-kondratiev-2908984.jpg);
+    background-image:linear-gradient(to bottom, rgba(160, 149, 149, 0.555), rgba(128, 113, 113, 0.623)), url(./images/pexels-stanislav-kondratiev-2908984.jpg);
     background-size: cover;
     background-attachment: fixed;
 }
@@ -15,17 +15,25 @@ html {
 
 body {
     height: 100%;
-    max-width: 1400px;
-    margin: auto;
+    /* max-width: 1400px;
+    margin: auto; */
 }
 
 header {
-    background-color: rgb(56, 56, 56);
+    grid-column: 2 / 3;
+}
+
+.fixed-header {
+    height: 140px;
+   width: calc(100vw - 340px);
+   min-width: 530px;
+   background-color: rgba(83, 83, 83, 0.699);
+   background-image: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.459));
     color: white;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
-    grid-column: 2 / 3;
 }
 
 .wrapper {
@@ -54,7 +62,7 @@ form .input-wrapper:not(:nth-last-child(2)) {
 }
 
 .my-books {
-    background-color: rgba(197, 162, 162, 0.938);
+    /* background-color: rgba(197, 162, 162, 0.938); */
     padding: 40px;
     min-width: 530px;
 
@@ -67,7 +75,16 @@ form .input-wrapper:not(:nth-last-child(2)) {
 .book-title-display {
     width: 200px;
     height: 300px;
-    background-color: aquamarine;
+    color: aliceblue;
+    font-size: 1.5em;
+    text-align: center;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    padding: 50px 30px;
+    background-image: url(./images/annie-spratt-im8y4BO2hso-unsplash.jpg);
+    background-size: contain;
+    background-position: right;
 }
 
 .book-info-display {

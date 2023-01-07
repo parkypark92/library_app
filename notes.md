@@ -10,3 +10,6 @@ CSS:
 JavaScript:
 
 - show whether book has been read or not under book display
+
+Bookshelf background image - Stanislav Kondratiev/Pexels
+Book cover image - Annie Spratt/Unsplash
