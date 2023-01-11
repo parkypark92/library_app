@@ -88,18 +88,24 @@ function createDisplay(bookToDisplay) {
   currentBook.classList.add("book-title-display");
   currentBook.setAttribute("data-index", myLibrary.indexOf(bookToDisplay));
   currentBook.textContent = bookToDisplay.title;
+  const titleInfo = document.createElement("p");
+  titleInfo.textContent = `Title: ${bookToDisplay.title}`;
+  const authorInfo = document.createElement("p");
+  authorInfo.textContent = `Author: ${bookToDisplay.author}`;
+  const publishedInfo = document.createElement("p");
+  publishedInfo.textContent = `Published: ${bookToDisplay.published}`;
+  const pagesInfo = document.createElement("p");
+  pagesInfo.textContent = `Pages: ${bookToDisplay.pages}`;
   const readAndNotRead = createReadAndNotRead(bookToDisplay.hasRead);
   const currentButton = createRemoveButton();
-  currentBook.appendChild(readAndNotRead);
-  currentBook.appendChild(currentButton);
   currentBook.addEventListener("mouseover", () => {
     currentBook.classList.toggle("book-title-display");
     currentBook.classList.toggle("book-info-display");
-    currentBook.textContent = `
-    Title: ${bookToDisplay.title}
-    Author: ${bookToDisplay.author}
-    Published: ${bookToDisplay.published}
-    Pages: ${bookToDisplay.pages}`;
+    currentBook.textContent = "";
+    currentBook.appendChild(titleInfo);
+    currentBook.appendChild(authorInfo);
+    currentBook.appendChild(publishedInfo);
+    currentBook.appendChild(pagesInfo);
     currentBook.appendChild(readAndNotRead);
     currentBook.appendChild(currentButton);
   });
@@ -107,6 +113,10 @@ function createDisplay(bookToDisplay) {
     currentBook.classList.toggle("book-title-display");
     currentBook.classList.toggle("book-info-display");
     currentBook.textContent = bookToDisplay.title;
+    currentBook.appendChild(titleInfo);
+    currentBook.appendChild(authorInfo);
+    currentBook.appendChild(publishedInfo);
+    currentBook.appendChild(pagesInfo);
     currentBook.appendChild(readAndNotRead);
     currentBook.appendChild(currentButton);
   });
@@ -129,13 +139,13 @@ function addBookToLibrary(event) {
 
 submit.addEventListener("click", addBookToLibrary);
 
-const testBook = new Book("Test Book1", "Andrew Park", "2023", "300", "No");
+const testBook = new Book("Test Book1", "Andrew Park", "2023", "300", "Yes");
 myLibrary.push(testBook);
 createDisplay(testBook);
 const testBook2 = new Book("Test Book2", "Andrew Park", "2023", "300", "No");
 myLibrary.push(testBook2);
 createDisplay(testBook2);
-const testBook3 = new Book("Test Book3", "Andrew Park", "2023", "300", "No");
+const testBook3 = new Book("Test Book3", "Andrew Park", "2023", "300", "Yes");
 myLibrary.push(testBook3);
 createDisplay(testBook3);
 const testBook4 = new Book("Test Book4", "Andrew Park", "2023", "300", "No");
@@ -144,10 +154,10 @@ createDisplay(testBook4);
 const testBook5 = new Book("Test Book5", "Andrew Park", "2023", "300", "No");
 myLibrary.push(testBook5);
 createDisplay(testBook5);
-const testBook6 = new Book("Test Book6", "Andrew Park", "2023", "300", "No");
+const testBook6 = new Book("Test Book6", "Andrew Park", "2023", "300", "Yes");
 myLibrary.push(testBook6);
 createDisplay(testBook6);
-const testBook7 = new Book("Test Book7", "Andrew Park", "2023", "300", "No");
+const testBook7 = new Book("Test Book7", "Andrew Park", "2023", "300", "Yes");
 myLibrary.push(testBook7);
 createDisplay(testBook7);
 const testBook8 = new Book("Test Book8", "Andrew Park", "2023", "300", "No");

@@ -94,13 +94,12 @@ form .input-wrapper:not(:nth-last-child(2)) {
 .book-info-display {
     width: 200px;
     height: 300px;
-    white-space: pre-wrap;
     background-image: linear-gradient(rgba(128, 128, 128, 0.5),rgba(128, 128, 128, 0.5)) ,url(./images/annie-spratt-im8y4BO2hso-unsplash.jpg);
     background-size: contain;
     background-position: right;
 }
 
-.book-title-display .remove-button, .book-title-display .read-buttons {
+.book-title-display .remove-button, .book-title-display .read-buttons, .book-title-display p {
     display: none;
 }
 
